@@ -1,0 +1,9 @@
+{
+  "name": "Headshot-validation-cdk",
+  "version": "0.1.0",
+  "private": "true",
+  "scripts": {
+    "processing:deploy": "cdk deploy --app \"./mvnw -e -q compile exec:java -Dexec.mainClass=com.abranlezama.cdk.PhotoProcessingApp\"",
+    "processing:destroy": "cdk destroy --app \"./mvnw -e -q compile exec:java -Dexec.mainClass=com.abranlezama.cdk.PhotoProcessingApp\""
+  }
+}
