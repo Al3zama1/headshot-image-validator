@@ -2,6 +2,9 @@ package com.abranlezama.cdk;
 
 import software.amazon.awscdk.Duration;
 import software.amazon.awscdk.Stack;
+import software.amazon.awscdk.services.dynamodb.Attribute;
+import software.amazon.awscdk.services.dynamodb.AttributeType;
+import software.amazon.awscdk.services.dynamodb.Table;
 import software.amazon.awscdk.services.lambda.Architecture;
 import software.amazon.awscdk.services.lambda.Code;
 import software.amazon.awscdk.services.lambda.Function;
@@ -18,7 +21,6 @@ import java.util.List;
 public class PhotoProcessingStack extends Stack {
     public PhotoProcessingStack(final Construct scope, final String id) {
         super(scope, id);
-
 
 
     }
@@ -39,6 +41,11 @@ public class PhotoProcessingStack extends Stack {
             .memorySize(512)
             .handler("com.abranlezama.PhotoProcessingLambda::handleRequest")
             .code(Code.fromAsset("../lambdas/photo-validation/target/photo-validation-1.0-SNAPSHOT.jar"))
+            .build();
+
+    Table validationResultTable = Table.Builder.create(this, "photoValidationResultTable")
+            .tableName("PhotoValidationResults")
+            .partitionKey(Attribute.builder().name("FileName").type(AttributeType.STRING).build())
             .build();
 
     void triggerLambdaOnImageUpload(Function function, Bucket bucket) {

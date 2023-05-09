@@ -38,6 +38,20 @@ public class PhotoProcessingApp {
                        .build()
        );
 
+       photoProcessingStack.photoProcessingLambda.addToRolePolicy(
+               PolicyStatement.Builder.create()
+                       .sid("WritePhotoValidationResultToDynamoDB")
+                       .effect(Effect.ALLOW)
+                       .actions(List.of(
+                               "dynamodb:PutItem"
+                       ))
+                       .resources(List.of(
+                               "arn:aws:dynamodb:us-west-1:384773585561:table/PhotoValidationResults"
+                       ))
+                       .build()
+       );
+
+
         app.synth();
     }
 }
