@@ -6,10 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="image-processing" />
-        <module name="image-validation-retrieval" />
         <module name="cdk" />
+        <module name="photo-validation" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="image-processing" target="11" />
+      <module name="image-validation-retrieval" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>

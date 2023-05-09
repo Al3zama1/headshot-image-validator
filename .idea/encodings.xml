@@ -7,5 +7,7 @@
     <file url="file://$PROJECT_DIR$/lambdas/image-processing/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/lambdas/image-validation-retrieval/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/lambdas/image-validation-retrieval/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lambdas/photo-validation/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lambdas/photo-validation/src/main/resources" charset="UTF-8" />
   </component>
 </project>
